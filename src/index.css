@@ -1,8 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.todo {
+  margin: 0 auto;
+  box-shadow: 0 0 10px lightgrey;
+  width: 500px;
+  border-radius: 10px;
+}
+
+header {
+  background-color: violet;
+  color: white;
+  padding: 1rem;
+}
+.content-todo {
+  padding: 1rem;
+}
+
+.todo-item {
+  margin-bottom: 1rem;
 }
