@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import CheckboxList from './CheckboxList';
+import InputTask from './InputTask';
 
 import { selectList } from './features/todoList/ToDoListSlice';
 import { addTask } from './features/todoList/ToDoListSlice';
@@ -16,6 +17,7 @@ const App = () => {
             <h1>ToDO List</h1>
           </header>
           <div className='content-todo'>
+            <InputTask />
             <CheckboxList list={list} />
           </div>
         </div>
