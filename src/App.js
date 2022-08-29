@@ -1,12 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
 import CheckboxList from './CheckboxList';
 import InputTask from './InputTask';
 
+import { useSelector } from 'react-redux';
 import { selectList } from './features/todoList/ToDoListSlice';
 
 const App = () => {
   const list = useSelector(selectList);
-  const dispatch = useDispatch();
 
   return (
     <div className='App'>

@@ -12,7 +12,6 @@ const InputTask = () => {
   const dispatch = useDispatch();
 
   const handleAddTask = () => {
-    console.log('Task added');
     console.log(inputText);
     dispatch(addTask(inputText));
   };

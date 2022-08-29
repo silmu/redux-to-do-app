@@ -6,38 +6,55 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { useDispatch } from 'react-redux';
+import { deleteTask, markAsDone } from './features/todoList/ToDoListSlice';
 
 const CheckboxList = ({ list }) => {
+  const dispatch = useDispatch();
+
+  const handleToggleCheck = taskName => {
+    dispatch(markAsDone(taskName));
+  };
+
+  const handleDeleteTask = task => {
+    dispatch(deleteTask(task.name));
+  };
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {list.map(task => {
-        const labelId = `checkbox-list-label-${task}`;
+        const labelId = `checkbox-list-label-${task.name}`;
 
         return (
           <ListItem
-            key={task}
+            key={task.name}
             secondaryAction={
-              <IconButton edge='end' aria-label='comments'>
-                <DeleteOutlineIcon />
+              <IconButton
+                edge='end'
+                aria-label='comments'
+                onClick={() => handleDeleteTask(task)}
+              >
+                <DeleteOutlineIcon sx={{ color: '#af7eeb' }} />
               </IconButton>
             }
             disablePadding
           >
             <ListItemButton
               role={undefined}
-              onClick={/*handleToggle(task)*/ () => console.log('Clicked')}
+              onClick={() => handleToggleCheck(task.name)}
               dense
             >
               <ListItemIcon>
                 <Checkbox
                   edge='start'
-                  checked={/*checked.indexOf(task) !== -1*/ false}
+                  checked={task.checked}
                   tabIndex={-1}
                   disableRipple
                   inputProps={{ 'aria-labelledby': labelId }}
+                  sx={{ color: '#af7eeb' }}
+                  color='secondary'
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={task} />
+              <ListItemText id={labelId} primary={task.name} />
             </ListItemButton>
           </ListItem>
         );
