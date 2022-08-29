@@ -3,7 +3,6 @@ import CheckboxList from './CheckboxList';
 import InputTask from './InputTask';
 
 import { selectList } from './features/todoList/ToDoListSlice';
-import { addTask } from './features/todoList/ToDoListSlice';
 
 const App = () => {
   const list = useSelector(selectList);
