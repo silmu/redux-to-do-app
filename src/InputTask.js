@@ -2,9 +2,11 @@ import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import TextField from '@mui/material/TextField';
-import { addTask } from './features/todoList/ToDoListSlice';
-import { setInputText } from './features/todoList/ToDoListSlice';
-import { selectInputText } from './features/todoList/ToDoListSlice';
+import {
+  addTask,
+  setInputText,
+  selectInputText,
+} from './features/todoList/ToDoListSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const InputTask = () => {
@@ -12,7 +14,6 @@ const InputTask = () => {
   const dispatch = useDispatch();
 
   const handleAddTask = () => {
-    console.log(inputText);
     dispatch(addTask(inputText));
   };
   return (
